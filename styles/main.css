@@ -2,6 +2,9 @@
 :root {
 	--accent-color: #800000;  /* could also be coded #800 */
 	--gradient-color: #f6bb73;
+	--light-color: white;
+	--mid-color: antiquewhite;
+	--dark-color: black;
 }
 
 /* reset */
@@ -106,6 +109,7 @@ footer {
 	}
 }
 
+
 /* CSS class */
 .featured {
 	border-top: 2px solid var(--accent-color);
@@ -125,4 +129,71 @@ footer {
 }
 .large {
 	font-size: 125%;
+}
+
+.menu{
+	display:flex;
+	flex-wrap:wrap;
+	text-align:center;
+	justify-content: space-around;
+
+	& li{
+		flex-basis: 20%;
+	}
+
+}
+.navbar{
+	background-color: var(--accent-color);
+
+	& a{
+		color: var(--light-color);
+		display: block;
+		text-decoration: none;
+		padding: 1em;
+		margin: 0px,1px,2px;
+	}
+
+	a:hover, a:focus{
+		background-color: var(--mid-color);
+		color: var(--dark-color);
+	}
+
+	& ul{
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+}
+
+li:has(.submenu){
+	position: relative;
+
+	small a{
+		padding-right: 5px;
+	}
+	
+	&:hover .submenu{
+		display:block;
+	}
+}
+
+.submenu{
+	position:absolute;
+	left:0;
+	right:0;
+	background-color: var(--accent-color);
+	color:var(--light-color);
+	display:none;
+
+	& > li a{
+		margin: 0 2px 2px;
+	}
+}
+
+.menu > li:first-child a{
+	margin-left:0;
+}
+
+.menu > li:last-child a{
+	margin-right:0;
 }
